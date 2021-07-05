@@ -1,0 +1,25 @@
+{
+  "name": "@js-ds/linked-lists",
+  "version": "1.0.0",
+  "description": "JavaScript Data Structures",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WesleyWW/js-ds-linked-lists.git"
+  },
+  "keywords": [
+    "js-ds"
+  ],
+  "author": "WesleyWW",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WesleyWW/js-ds-linked-lists/issues"
+  },
+  "homepage": "https://github.com/WesleyWW/js-ds-linked-lists#readme"
+}
