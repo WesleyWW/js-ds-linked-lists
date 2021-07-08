@@ -1,9 +1,21 @@
 const { LinkedList } = require('./singlyLinkedList');
 
+/**
+ * 
+ * @param {number} min 
+ * @param {number} max 
+ * @returns {number} random number between min and max
+ */
 function randomNum(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
-
+/**
+ * 
+ * @param {number} size 
+ * @param {number} minInt 
+ * @param {number} maxInt 
+ * @returns {Array} of non-repeating integers if size permits
+ */
 function randomArray(size, minInt, maxInt) {
     let outputArray = new Array(size)
     let usedNums = {}
@@ -17,7 +29,12 @@ function randomArray(size, minInt, maxInt) {
     }
     return outputArray;
 }
-
+/**
+ * 
+ * @param {number} size 
+ * @param {number} startInt 
+ * @returns {Array} of integers - ordered starting from starInt
+ */
 function orderedArray(size, startInt) {
     let outputArray = new Array(size)
     let num = startInt;
@@ -28,8 +45,10 @@ function orderedArray(size, startInt) {
     return outputArray;
 }
 
+/*SINGLY LINKED LIST SAMPLES */
+
 let listSmOrder = new LinkedList;
-listSmOrder.insertLastFromArray(orderedArray(3, 1))
+listSmOrder.insertLastFromArray(orderedArray(3, 1)).printList();
 
 let listSmRandom = new LinkedList;
 // console.log('listSmRandom')

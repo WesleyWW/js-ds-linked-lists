@@ -1,12 +1,4 @@
-/**
- * @class
- */
- class Node {
-    constructor(value) {
-        this.value = value;
-        this.next = null;
-    }
-}
+const {Node} = require('./listNode');
 
 /**
  * Every method returns a {LinkedList} to allow them to be strung together i.e. list.insertLast(2).insertLast(4).printList()
