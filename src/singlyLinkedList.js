@@ -30,6 +30,8 @@ class LinkedList {
      * @returns {LinkedList}
      */
     insertLast(value) {
+        if (value === null || value === undefined) return this; 
+
         let node = new Node(value);
 
         if (this.isEmptyList()) {
@@ -51,7 +53,10 @@ class LinkedList {
      * @returns {LinkedList}
      */
     insertFirst(value) {
+        if (value === null || value === undefined) return this; 
+        
         let node = new Node(value);
+        
         if (this.isEmptyList()) {
             this.head = node;
             this.tail = node;
