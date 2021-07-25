@@ -48,7 +48,8 @@ function orderedArray(size, startInt) {
 /*SINGLY LINKED LIST SAMPLES */
 
 let listSmOrder = new LinkedList;
-listSmOrder.insertLastFromArray(orderedArray(3, 1)).printList();
+listSmOrder.insertLastFromArray([1, 2, 3]);
+// listSmOrder.insertLastFromArray(orderedArray(3, 1));
 
 let listSmRandom = new LinkedList;
 // console.log('listSmRandom')
@@ -71,8 +72,6 @@ let listLgRandom = new LinkedList;
 listLgRandom.insertLastFromArray(randomArray(25, 0, 99));
 
 
-
 module.exports = {
     listSmOrder, listSmRandom, listMdOrder, listMdRandom, listLgOrder, listLgRandom,
-
 }
