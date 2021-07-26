@@ -1,8 +1,16 @@
-const { expect } = require('chai');
+const { expect, assert } = require('chai');
 const { Node } = require('../src/listNode');
 const { LinkedList } = require('../src/singlyLinkedList');
 
 
+describe('Node test', () => {
+    const node = new Node(3);
+
+    it('is node', ()=> {
+        expect(node).to.be.instanceOf(Node);
+        assert.isNumber(node.value);
+    })
+})
 
 describe('singly linked list test', () => {
     const emptyList = new LinkedList;

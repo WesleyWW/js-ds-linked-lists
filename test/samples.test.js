@@ -3,6 +3,7 @@ var chai    = require("chai"),
 
 const { LinkedList }    = require('../src/singlyLinkedList');
 const samples           = require('../src/samples');
+const { assert } = require("chai");
 
 function isOrdered(list) {
     let isOrdered = false;
@@ -20,12 +21,28 @@ function isOrdered(list) {
 
 
 describe('linked list samples', () => {
+    
     describe('create list', () => {
         for (const list in samples) {
             it(`${list}`, () => {
                 expect(samples[list]).to.be.instanceOf(LinkedList);
             })
         }
+    })
+    
+    describe('sized properly', () => {
+        it('small lists', () => {
+           assert.isAtLeast(samples.listSmOrder.length, 3);
+           assert.isBelow(samples.listSmOrder.length, 6);
+        })
+        it('medium lists', () => {
+            assert.isAtLeast(samples.listMdOrder.length, 10);
+            assert.isBelow(samples.listMdOrder.length, 20);
+        })
+        it('large lists', () => {
+            assert.isAtLeast(samples.listLgOrder.length, 25);
+            assert.isBelow(samples.listLgOrder.length, 40);
+        })
     })
 
     describe('ordered lists', () => {
@@ -35,14 +52,15 @@ describe('linked list samples', () => {
             listLgOrder: samples.listLgOrder
         }
 
-        describe('is ordered', () => { 
-            for (const list in lists) {
-                it(`${list}`, () => {
-                    expect(isOrdered(lists[list])).to.be.true;
+        describe('is ordered(ascending)', () => { 
+            for (const listId in lists) {
+                it(`${listId}`, () => {
+                    expect(isOrdered(lists[listId])).to.be.true;
                 })
             }    
         })
 
     })
+    
 })
 
