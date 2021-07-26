@@ -1,5 +1,5 @@
 const { expect, assert } = require('chai');
-const { Node } = require('../src/listNode');
+const { Node } = require('../src/listNodes');
 const { LinkedList } = require('../src/singlyLinkedList');
 
 

@@ -1,7 +1,7 @@
-const {Node} = require('./listNode');
+const {Node} = require('./listNodes');
 
 /**
- * Every method returns a {LinkedList} to allow them to be strung together i.e. list.insertLast(2).insertLast(4).printList()
+ * Every method returns a {LinkedList} to allow methods to be strung together i.e. list.insertLast(2).insertLast(4).printList()
  * Exceptions are made for any method specifically wanted something other than a {LinkedList} in return
  * @class
  */
@@ -12,17 +12,38 @@ class LinkedList {
         this.length = 0;
     }
 
+    
     /**
-     * Add values to the end from an array
+     * Check if the list is empty
      * @public
-     * @param {any} array 
-     * @returns {LinkedList}
+     * @returns {boolean}
      */
-    insertLastFromArray(array) {
-        array.map( val => this.insertLast(val) );
-        return this;
+     isEmptyList() {
+        return this.head === null;
     }
 
+    /**
+     * Add a node to the front of the list
+     * @param {number} value 
+     * @returns {LinkedList}
+     */
+    insertFirst(value) {
+        if (value === null || value === undefined) return this; 
+        
+        let node = new Node(value);
+        
+        if (this.isEmptyList()) {
+            this.head = node;
+            this.tail = node;
+            this.length = 1;
+        }
+
+        node.next = this.head;
+        this.head = node;
+        this.length++
+        return this;
+    }
+    
     /**
      * Add a node to the end of the list
      * @public
@@ -46,36 +67,15 @@ class LinkedList {
         this.length++;
         return this;
     }
-    
     /**
-     * Add a node to the front of the list
-     * @param {any} value 
+     * Add values to the end from an array
+     * @public
+     * @param {any} array 
      * @returns {LinkedList}
      */
-    insertFirst(value) {
-        if (value === null || value === undefined) return this; 
-        
-        let node = new Node(value);
-        
-        if (this.isEmptyList()) {
-            this.head = node;
-            this.tail = node;
-            this.length = 1;
-        }
-
-        node.next = this.head;
-        this.head = node;
-        this.length++
+     insertLastFromArray(array) {
+        array.map( val => this.insertLast(val) );
         return this;
-    }
-
-    /**
-     * Check if the list is empty
-     * @public
-     * @returns {boolean}
-     */
-    isEmptyList() {
-        return this.head === null;
     }
 
     /**
