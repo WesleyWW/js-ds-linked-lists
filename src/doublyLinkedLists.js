@@ -1,50 +1,49 @@
-const {Node} = require('./listNodes');
-
+const {DoubleNode} = require('./listNodes');
 /**
- * Every method returns a {LinkedList} to allow methods to be strung together i.e. list.insertLast(2).insertLast(4).printList()
- * Exceptions are made for any method specifically wanted something other than a {LinkedList} in return
+ * 
  * @class
  */
-class LinkedList {
-    constructor() {
-        this.head = null;
-        this.tail = null;
-        this.length = 0;
+class DoublyLinkedList {
+    constructor(){
+        this.head = null,
+        this.tail = null,
+        this.length = 0
     }
 
-    
     /**
      * Check if the list is empty
      * @public
      * @returns {boolean}
      */
-     isEmptyList() {
+    isEmptyList() {
         return this.head === null;
     }
 
     /**
      * Add a node to the front of the list
-     * @public
      * @param {number} value 
-     * @returns {LinkedList}
+     * @returns {DoublyLinkedList}
      */
     insertFirst(value) {
-        if (value === null || value === undefined) return this; 
-        
-        let node = new Node(value);
-        
+        if (value === null || value === undefined) {
+            throw "No value defined";
+        } 
+
+        let node = new DoubleNode(value);
+
         if (this.isEmptyList()) {
             this.head = node;
             this.tail = node;
             this.length = 1;
+            return this;
         }
-
+        this.head.prev = node;
         node.next = this.head;
         this.head = node;
-        this.length++
+        this.length++;
         return this;
     }
-    
+
     /**
      * Add a node to the end of the list
      * @public
@@ -52,9 +51,11 @@ class LinkedList {
      * @returns {LinkedList}
      */
     insertLast(value) {
-        if (value === null || value === undefined) return this; 
+        if (value === null || value === undefined) {
+            throw "No value defined";
+        }
 
-        let node = new Node(value);
+        let node = new DoubleNode(value);
 
         if (this.isEmptyList()) {
             this.head = node;
@@ -64,14 +65,16 @@ class LinkedList {
         }
 
         this.tail.next = node;
+        node.prev = this.tail;
         this.tail = node;
         this.length++;
         return this;
     }
+
     /**
      * Add values to the end from an array
      * @public
-     * @param {any} array 
+     * @param {array(number)} array 
      * @returns {LinkedList}
      */
      insertLastFromArray(array) {
@@ -79,24 +82,26 @@ class LinkedList {
         return this;
     }
 
-    /**
+     /**
      * Print list for human reading
      * @public
-     * @returns {LinkedList}
+     * @returns {DoublyLinkedList}
      */
     printList() {
         if (this.length === 0) return null;
 
         let current = this.head;
-        let output = '';
+        let output = 'null <-(head)';
         while (current !== null) {
-            output += `${current.value} -> `;
+
+            output += ` ${current.value} <-->`;
             current = current.next;
         }
-        output += 'null';
+        output = output.slice(0, -4)
+        output += '(tail) -> null';
         console.log(output);
         return this;
     }
 }
 
-module.exports = {LinkedList};
+module.exports = { DoublyLinkedList };
