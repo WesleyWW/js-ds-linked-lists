@@ -46,9 +46,9 @@ describe('singly linked list test', () => {
         })
     })
     
-    describe('printList()', () => {
-        it('check for empty list', () => {
-            expect(linkedList.printList()).to.be.instanceOf(LinkedList);
-        })
-    })
+    // describe('printList()', () => {
+    //     it('print the list', () => {
+    //         expect(linkedList.printList()).to.be.instanceOf(LinkedList);
+    //     })
+    // })
 })
