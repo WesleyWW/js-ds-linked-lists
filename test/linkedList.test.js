@@ -18,9 +18,10 @@ describe('singly linked list test', () => {
 
     describe('.insertLast()', () => {
         it('insert a node at the end', () => {
-            expect(linkedList.insertLast()).to.be.instanceOf(LinkedList);
             expect(linkedList.insertLast(2)).to.be.instanceOf(LinkedList);
             expect(linkedList.insertLast(1)).to.be.instanceOf(LinkedList);
+            expect(linkedList.insertLast()).to.be.instanceOf(LinkedList);
+            expect(linkedList.length).to.equal(2);
         })
     })
 

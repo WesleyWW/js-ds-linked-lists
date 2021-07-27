@@ -9,10 +9,10 @@ let dListSmOrder = new DoublyLinkedList;
 dListSmOrder.insertLastFromArray([1, 2, 3]);
 
 let dListSmRandom = new DoublyLinkedList;
-dListSmRandom.insertLastFromArray(randomArray(3, 0, 10)).printList();
+dListSmRandom.insertLastFromArray(randomArray(3, 0, 10));
 
 let dListMdOrder = new DoublyLinkedList;
-dListMdOrder.insertLastFromArray(orderedArray(10, 1)).printList();
+dListMdOrder.insertLastFromArray(orderedArray(10, 1));
 
 let dListMdRandom = new DoublyLinkedList;
 dListMdRandom.insertLastFromArray(randomArray(10, 0, 1));

@@ -26,7 +26,8 @@ class DoublyLinkedList {
      */
     insertFirst(value) {
         if (value === null || value === undefined) {
-            throw "No value defined";
+            console.log("No Value Added");
+            return this;
         } 
 
         let node = new DoubleNode(value);
@@ -52,7 +53,8 @@ class DoublyLinkedList {
      */
     insertLast(value) {
         if (value === null || value === undefined) {
-            throw "No value defined";
+            console.log("No Value Added");
+            return this;
         }
 
         let node = new DoubleNode(value);
