@@ -42,5 +42,29 @@ module.exports = {
             num++
         }
         return outputArray;
+    },
+
+    /**
+     * 
+     * @param {LinkedList} list 
+     * @param {number} loopNodeIndex 
+     * @returns {LinkedList}
+     */
+    makeLoop(list, loopNodeIndex) {
+        //staying in bounds
+        if (list.length < 3 || list.length <= loopNodeIndex) { 
+            //just use a doubly linked list
+            return list;
+        }
+        
+        let current = list.head;
+        let index = 0;
+        
+        while (index < loopNodeIndex) {
+            current = current.next;
+            index++
+        }
+        list.tail.next = current;
+        return list;
     }
 }

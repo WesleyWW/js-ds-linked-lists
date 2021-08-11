@@ -1,11 +1,12 @@
 var chai    = require("chai"),
     expect  = chai.expect; // preference and tested with expect
 
-var { assert }          = require("chai");
-const { LinkedList }    = require('../src/singlyLinkedList');
-const { DoublyLinkedList } = require('../src/doublyLinkedLists');
+var { assert }              = require("chai");
+const { Node }          = require('../src/listNodes');
+const { LinkedList }        = require('../src/singlyLinkedList');
+const { DoublyLinkedList }  = require('../src/doublyLinkedLists');
 const listSamples           = require('../src/listSamples');
-const dListSamples           = require('../src/dListSamples');
+const dListSamples          = require('../src/dListSamples');
 
 function isOrdered(list) {
     let isOrdered = false;
@@ -20,7 +21,6 @@ function isOrdered(list) {
 
     return true;
 }
-
 
 describe('linked list listSamples', () => {
     
@@ -101,5 +101,19 @@ describe('double linked lists', () => {
         }    
 
     })
+})
+
+describe('looped lists', () => {
+    const lists = {
+        listSmLoop: listSamples.listSmLoop,
+        listMdLoop: listSamples.listMdLoop,
+        listLgLoop: listSamples.listLgLoop
+    }
+
+    for (const listId in lists) {
+        it(`${listId} is a loop`, () => {
+            expect(lists[listId].tail.next).to.be.instanceOf(Node);
+        })
+    }  
 })
 

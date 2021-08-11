@@ -92,6 +92,12 @@ class LinkedList {
         while (current !== null) {
             output += `${current.value} -> `;
             current = current.next;
+
+            if (this.tail.next !== null && current === this.tail) {
+                output += '[Loop] -> '+current.next.value;
+                console.log(output);
+                return this;
+            }
         }
         output += 'null';
         console.log(output);
